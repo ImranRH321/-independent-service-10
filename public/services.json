@@ -1,0 +1,23 @@
+[
+    {
+      "id": "62a4b94654e58dfe76a2de5e",
+      "price": "$1200",
+      "image": "https://i.ibb.co/d2Vg9Fv/travele1.jpg",
+      "name": "CANADA",
+      "description": "Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat."
+    },
+    {
+      "id": "62a4b946461c41460ad70062",
+      "price": "$1105",
+      "image": "https://i.ibb.co/8rLr5cz/travele2.jpg",
+      "name": "NEW ZEALAND",
+      "description": "Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat."
+    },
+    {
+      "id": "62a4b94673ecae08f912a444",
+      "price": "$$1476",
+      "image": "https://i.ibb.co/wBvDkXG/travele3.jpg",
+      "name": "MALAYSIA",
+      "description": "Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat."
+    }
+  ]
