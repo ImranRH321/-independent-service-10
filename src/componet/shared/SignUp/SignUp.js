@@ -15,6 +15,12 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
     const navigate = useNavigate()
+
+    let errorElement  
+  if(error){
+    errorElement = <p className='text-danger'>Error: {error?.message}</p>
+  }
+
   if (user) {
     navigate('/home')
     console.log(user);
@@ -81,6 +87,7 @@ const SignUp = () => {
               required
             />
           </Form.Group>
+          {errorElement}
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <div className="d-flex align-items-center justify-content-center">
               <Form.Check
