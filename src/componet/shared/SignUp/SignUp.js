@@ -37,6 +37,10 @@ const SignUp = () => {
     const password = usePassword.current.value;
     const confirmPassword = useConfirmPassword.current.value;
 
+    if(password.length <= 6){
+    alert('password minimum 6 character')
+    return;
+    }
     if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
       alert(" password At least one special character");
       return;

@@ -6,7 +6,7 @@ import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.int";
 import Loading from "../Loading/Loading";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,6 +26,8 @@ const Login = () => {
     useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
+  let location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   if (loading || loading1 || sending) {
     return <Loading></Loading>;
@@ -39,8 +41,8 @@ const Login = () => {
       </p>
     );
   if (user || user1) {
-    console.log(user, user1);
-    navigate("/home");
+    console.log('user1', user1);
+    navigate(from, { replace: true });
   }
   const handleExistsLoginUser = event => {
     event.preventDefault();
@@ -49,6 +51,7 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  
   const handleResetPassword = async () => {
     const email = useEmail.current.value;
     if (email) {

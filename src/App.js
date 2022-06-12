@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./componet/Home/About/About";
+import Blogs from "./componet/Home/Blogs/Blogs";
 import Home from "./componet/Home/Home/Home";
 import ServiceDetails from "./componet/Home/Services/ServiceDetails/ServiceDetails";
 import Services from "./componet/Home/Services/Services/Services";
@@ -28,6 +29,7 @@ const App = () => {
         ></Route>
         <Route path="/login" element={<Login></Login>}>Login</Route>
         <Route path="/signup" element={<SignUp></SignUp>}>SignUp</Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

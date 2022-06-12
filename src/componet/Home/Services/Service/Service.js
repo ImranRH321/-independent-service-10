@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './Service.css';
 
 const Service = ({ service }) => {
   const { name, image, price, id } = service;
@@ -10,8 +11,10 @@ const Service = ({ service }) => {
     navigate(`/services/${id}`);
   };
   return (
-    <div className="col-md-4 border ">
-      <div className="w-100 mt-2">
+
+     <div className="col-md-4">
+     <div className=" shadow border border-info rounded">
+     <div className="w-100 rounded">
         <img className="w-100" src={image} alt="" />
       </div>
       <div className="text-center">
@@ -24,7 +27,9 @@ const Service = ({ service }) => {
           Books
         </button>
       </div>
+     </div>
     </div>
+
   );
 };
 

@@ -3,28 +3,29 @@ import { Navbar, Container, Nav, Carousel } from "react-bootstrap";
 
 const Banner = () => {
   return (
-    <div>
+    <div style={{height:'500px'}}>
       <Container>
         <Carousel>
           <Carousel.Item interval={1000}>
             <img
-              className="d-block w-100"
-              src="https://img.freepik.com/free-photo/young-man-arms-outstretched-by-sea-sunrise-enjoying-freedom-life-people-travel-wellbeing-concept_169160-68.jpg?w=740"
+             style={{height:'500px'}}
+              className="d-block w-100 "
+              src="https://cdn.pixabay.com/photo/2017/08/02/13/20/people-2571590_960_720.jpg"
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item interval={500}>
             <img
+                style={{height:'500px'}}
               className="d-block w-100"
-              src="https://img.freepik.com/free-psd/explore-concept-banner-template_23-2148652998.jpg?t=st=1654966245~exp=1654966845~hmac=27dd33d8ff35f5a9f3041b416220dcecb48318178870dd99b1118a6482af8c42&w=996"
-              alt="Second slide"
+              src="https://monaltravels.com/wp-content/uploads/2021/01/Tour-Alone.jpg"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
+                style={{height:'500px'}}
               className="d-block w-100"
-              src="https://img.freepik.com/free-psd/corporate-business-multipurpose-flyer-design-brochure-cover-page-template_169307-1192.jpg?w=740"
-              alt="Third slide"
+              src="https://img.freepik.com/free-psd/explore-concept-banner-template_23-2148652998.jpg?t=st=1655038452~exp=1655039052~hmac=9ff821cf676dbe66fc54360d1110f2dd0567abb4541d505f964e9039977ca4c2&w=996"
             />
           </Carousel.Item>
         </Carousel>
