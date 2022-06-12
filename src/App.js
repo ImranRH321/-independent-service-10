@@ -7,6 +7,7 @@ import Services from "./componet/Home/Services/Services/Services";
 import Header from "./componet/shared/Header/Header";
 import Login from "./componet/shared/Login/Login";
 import NotFound from "./componet/shared/NotFound/NotFound";
+import RequireAuth from "./componet/shared/RequireAuth/RequireAuth";
 import SignUp from "./componet/shared/SignUp/SignUp";
 
 const App = () => {
@@ -19,7 +20,11 @@ const App = () => {
         <Route path="/services" element={<Services></Services>}></Route>
         <Route
           path="services/:bookId"
-          element={<ServiceDetails></ServiceDetails>}
+          element={
+            <RequireAuth>
+              <ServiceDetails></ServiceDetails>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="/login" element={<Login></Login>}>Login</Route>
         <Route path="/signup" element={<SignUp></SignUp>}>SignUp</Route>

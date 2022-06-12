@@ -3,7 +3,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.int";
 
 const SignUp = () => {
@@ -13,38 +16,40 @@ const SignUp = () => {
   const useConfirmPassword = useRef("");
   const [agree, setAgree] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification:true});
-    const navigate = useNavigate()
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  // ...
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
 
-    let errorElement  
-  if(error){
-    errorElement = <p className='text-danger'>Error: {error?.message}</p>
+  let errorElement;
+  if (error) {
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
 
   if (user) {
-    navigate('/home')
+    navigate("/home");
     console.log(user);
   }
-  const handleCreateUser = event => {
+  const handleCreateUser = async event => {
     event.preventDefault();
     const name = useName.current.value;
     const email = useEmail.current.value;
     const password = usePassword.current.value;
     const confirmPassword = useConfirmPassword.current.value;
-    //  if(password.length < 6){
-    //    alert('minimum 6 character')
-    //    return;
-    //  }
+
     if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
       alert(" password At least one special character");
       return;
     }
-    if (password === confirmPassword) {  
-      createUserWithEmailAndPassword(email, password)
-    } else{
-      alert('password and confirm password is not match ')
+    if (password === confirmPassword) {
+      await createUserWithEmailAndPassword(email, password);
+
+      await updateProfile({ displayName: name });
+      alert("Updated profile");
+      navigate("/home");
+    } else {
+      alert("password and confirm password is not match ");
     }
-    
   };
 
   return (

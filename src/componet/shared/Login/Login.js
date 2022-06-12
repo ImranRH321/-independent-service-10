@@ -9,6 +9,9 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.int";
 import Loading from "../Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const useEmail = useRef("");
@@ -16,39 +19,46 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const [signInWithGoogle, user1, loading1, errorGoggle] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user1, loading1, errorGoggle] =
+    useSignInWithGoogle(auth);
+
   const [sendPasswordResetEmail, sending, errorR] =
     useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
 
-  if (loading || sending) {
+  if (loading || loading1 || sending) {
     return <Loading></Loading>;
   }
 
   let errorElement;
-  if (error || errorGoggle)
+  if (error || errorGoggle || errorR)
     errorElement = (
       <p className="text-danger my-3">
-        Error: {error?.message} {errorGoggle?.message}
+        Error: {error?.message} {errorGoggle?.message} {errorR?.message}
       </p>
     );
   if (user || user1) {
     console.log(user, user1);
     navigate("/home");
   }
-  const handleExistsLoginUser = (event) => {
+  const handleExistsLoginUser = event => {
     event.preventDefault();
     const email = useEmail.current.value;
     const password = usePassword.current.value;
-   signInWithEmailAndPassword(email, password);
-  
+    signInWithEmailAndPassword(email, password);
   };
 
   const handleResetPassword = async () => {
     const email = useEmail.current.value;
-    await sendPasswordResetEmail(email)
-  }
+    if (email) {
+      console.log(email);
+      await sendPasswordResetEmail(email);
+      toast("send reset email");
+    } else {
+      toast("please Enter your email");
+    }
+  };
 
   return (
     <div>
@@ -102,10 +112,16 @@ const Login = () => {
           </p>
           <p className="">
             Forget Password ?
-            <button onClick={()=>handleResetPassword()} className="btn btn-danger ms-2 mt-2">Please Reset</button>
+            <button
+              onClick={() => handleResetPassword()}
+              className="btn btn-link text-primary pe-auto text-decoration-none' ms-2 mt-2"
+            >
+              Please Reset
+            </button>
           </p>
         </Form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
