@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.int";
@@ -17,16 +18,18 @@ const SignUp = () => {
   const [agree, setAgree] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    // ...
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
   // ...
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
 
   let errorElement;
-  if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+  if (error || error1) {
+    errorElement = <p className="text-danger">Error: {error?.message} {error1?.message}</p>;
   }
 
-  if (user) {
+  if (user || user1) {
     navigate("/home");
     console.log(user);
   }
@@ -119,6 +122,7 @@ const SignUp = () => {
               SignUp
             </Button>
             <Button
+             onClick={() => signInWithGoogle()}
               className="w-25 mx-auto d-block"
               variant="dark"
               type="submit"

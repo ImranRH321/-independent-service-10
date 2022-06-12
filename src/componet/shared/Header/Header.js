@@ -10,10 +10,10 @@ const Header = () => {
   const logOutButton = () => {
     signOut(auth)
   }
-  console.log(user?.name);
+  // console.log(user?.name);
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark"  sticky="top"  variant="dark">
         <Container>
           <Navbar.Brand as={NavLink} to="/">
             TraveL

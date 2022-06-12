@@ -5,4 +5,5 @@
 .shadow:hover{
     background-color: rgba(205, 103, 25, 0.754);
     color: palegreen;
+    border: 2px solid royalblue;
 }
