@@ -28,7 +28,7 @@ const ServiceDetails = () => {
             <div className="text-center text-dark w-75">
               <h5 className="mt-4">{services.name}</h5>
               <h4 className="mb-4">Price: {services.price}</h4>
-              <p className="px-2 font-italic">{services.description}</p>
+              <p className="px-2 font-italic text-muted">{services.description}</p>
             </div>
           </div>
         </div>

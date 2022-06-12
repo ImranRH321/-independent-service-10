@@ -1,0 +1,24 @@
+.link{
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 7px 0;
+    text-align: left;
+}
+ 
+.bg{
+    background-color: #010001;
+    color: #dddbdd;
+    padding: 15px 0;
+    font-style: italic;
+}
+
+@media screen and (max-width: 776px) {
+    .link{
+        text-align: center;
+        display: inline-block;
+        margin: 0 10px;
+    }
+  }
+  

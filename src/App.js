@@ -5,11 +5,13 @@ import Blogs from "./componet/Home/Blogs/Blogs";
 import Home from "./componet/Home/Home/Home";
 import ServiceDetails from "./componet/Home/Services/ServiceDetails/ServiceDetails";
 import Services from "./componet/Home/Services/Services/Services";
+import Footer from "./componet/shared/Footer/Footer";
 import Header from "./componet/shared/Header/Header";
 import Login from "./componet/shared/Login/Login";
 import NotFound from "./componet/shared/NotFound/NotFound";
 import RequireAuth from "./componet/shared/RequireAuth/RequireAuth";
 import SignUp from "./componet/shared/SignUp/SignUp";
+import './app.css'
 
 const App = () => {
   return (
@@ -33,6 +35,7 @@ const App = () => {
         <Route path="/about" element={<About></About>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 };
