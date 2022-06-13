@@ -13,7 +13,6 @@ import auth from "../../../firebase.int";
 import Loading from "../Loading/Loading";
 
 const SignUp = () => {
-  const [userN, setUserN] = useState({})
   const useName = useRef("");
   const useEmail = useRef("");
   const usePassword = useRef("");
@@ -61,7 +60,6 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(email, password);
 
         await updateProfile({ displayName: name });
-        const obj = {displayName:name, email: email} 
         navigate("/home");
       } else {
         alert("password and confirm password is not match ");
