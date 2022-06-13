@@ -28,7 +28,9 @@ const ServiceDetails = () => {
             <div className="text-center text-dark w-75">
               <h5 className="mt-4">{services.name}</h5>
               <h4 className="mb-4">Price: {services.price}</h4>
-              <p className="px-2 font-italic text-muted">{services.description}</p>
+              <p className="px-2 font-italic text-muted">
+                {services.description}
+              </p>
             </div>
           </div>
         </div>
@@ -59,7 +61,9 @@ const ServiceDetails = () => {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <div className="d-flex align-items-center justify-content-center"></div>
               </Form.Group>
-              <button className="bg-dark text-white p-2 w-50 mx-auto">Checkout</button>
+              <Link to="/checkout" className="btnColor  p-2 px-5 w-50 mx-auto">
+                Checkout
+              </Link>
             </Form>
           </div>
         </div>

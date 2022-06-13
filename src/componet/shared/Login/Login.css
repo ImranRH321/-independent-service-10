@@ -1,0 +1,14 @@
+.singUpBg {
+  background-color: #010001;
+  width: 500px;
+
+}
+
+
+@media screen and (max-width: 576px) {
+  .singUpBg {
+    background-color: #010001;
+    max-width: 430px;
+  }
+}
+

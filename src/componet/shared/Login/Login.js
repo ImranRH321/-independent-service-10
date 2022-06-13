@@ -10,6 +10,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.int";
 import Loading from "../Loading/Loading";
 import { ToastContainer, toast } from "react-toastify";
+import './Login.css'
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -65,14 +66,15 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-50 mx-auto border p-3 mt-5 rounded bg-light">
+      <div className=" mx-auto border p-3 bg mt-5 rounded cssControl">
         <h1 className="text-center ">
-          <mark className="px-4 text-primary">Login page</mark>
+          <mark className="px-4 LTitle">Login page</mark>
         </h1>
         <Form onSubmit={handleExistsLoginUser}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label className="text-primary">Email address</Form.Label>
+            <Form.Label className="text-primary ">Email address</Form.Label>
             <Form.Control
+            className="css"
               ref={useEmail}
               type="email"
               placeholder="Enter email"
@@ -83,6 +85,7 @@ const Login = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label className="text-primary">Password</Form.Label>
             <Form.Control
+             className="css"
               ref={usePassword}
               type="password"
               placeholder="Password"
@@ -92,16 +95,16 @@ const Login = () => {
           </Form.Group>
           <div className="d-flex d-md-flex">
             <Button
-              className="w-25 mx-auto d-block"
-              variant="dark"
+              className="w-25 mx-auto d-block btnColor"
+              variant=""
               type="submit"
             >
               Login
             </Button>
             <Button
               onClick={() => signInWithGoogle()}
-              className="w-25 mx-auto d-block"
-              variant="dark"
+              className="w-25 mx-auto d-block btnG"
+             
               type="submit"
             >
               Google
@@ -109,7 +112,7 @@ const Login = () => {
           </div>
           <p className="mt-2 mb-0">
             New User ?
-            <Link className="text-decoration-none" to="/signup">
+            <Link className="text-decoration-none text-info ps-2" to="/signup">
               Please SignUp
             </Link>
           </p>
@@ -117,7 +120,7 @@ const Login = () => {
             Forget Password ?
             <button
               onClick={() => handleResetPassword()}
-              className="btn btn-link text-primary pe-auto text-decoration-none' ms-2 mt-2"
+              className="btn  text-primary pe-auto text-decoration-none' text-info ps-2 mt-2"
             >
               Please Reset
             </button>

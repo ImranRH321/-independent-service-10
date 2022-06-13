@@ -1,0 +1,14 @@
+
+.cssControl {
+    background-color: #010001;
+    width: 600px;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .cssControl {
+      background-color: #010001;
+      max-width: 430px;
+    }
+  }
+  
+  

@@ -12,6 +12,7 @@ import NotFound from "./componet/shared/NotFound/NotFound";
 import RequireAuth from "./componet/shared/RequireAuth/RequireAuth";
 import SignUp from "./componet/shared/SignUp/SignUp";
 import './app.css'
+import Checkout from "./componet/Home/Services/Checkout/Checkout";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/login" element={<Login></Login>}>Login</Route>
         <Route path="/signup" element={<SignUp></SignUp>}>SignUp</Route>
         <Route path='blogs' element={<Blogs></Blogs>}></Route>
+         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
